@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ml-inference
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ml-inference
+  template:
+    metadata:
+      labels:
+        app: ml-inference
+    spec:
+      containers:
+      - name: ml-inference
+        image: proap900/ml-inference:latest
+        ports:
+        - containerPort: 8001

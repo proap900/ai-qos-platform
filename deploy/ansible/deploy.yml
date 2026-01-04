@@ -1,0 +1,14 @@
+- name: Deploy AI QoS Platform to Minikube
+  hosts: localhost
+  tasks:
+    - name: Apply ML inference deployment
+      command: kubectl apply -f deploy/k8s/ml-inference-deployment.yaml
+
+    - name: Apply ML inference service
+      command: kubectl apply -f deploy/k8s/ml-inference-service.yaml
+
+    - name: Apply API gateway deployment
+      command: kubectl apply -f deploy/k8s/api-gateway-deployment.yaml
+
+    - name: Apply API gateway service
+      command: kubectl apply -f deploy/k8s/api-gateway-service.yaml
