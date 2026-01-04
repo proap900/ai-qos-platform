@@ -6,7 +6,7 @@ app = FastAPI(title="QoS API Gateway")
 
 @app.get("/health")
 def health():
-    return {"status": "gateway-ok"}
+    return {"status": "ml gateway-ok"}
 
 @app.post("/predict", response_model=QoSResponse)
 def predict(request: QoSRequest):
