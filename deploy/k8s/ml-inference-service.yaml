@@ -3,9 +3,10 @@ kind: Service
 metadata:
   name: ml-inference
 spec:
+  type: NodePort         # <-- change from ClusterIP to NodePort
   selector:
     app: ml-inference
   ports:
-  - protocol: TCP
-    port: 8001
-    targetPort: 8001
+    - port: 8001
+      targetPort: 8001
+      nodePort: 30081    # optional, or let Kubernetes assign
