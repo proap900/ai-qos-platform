@@ -17,3 +17,4 @@ spec:
         image: proap900/ai-qos-ml-inference:latest
         ports:
         - containerPort: 8001
+          hostPort: 30081
