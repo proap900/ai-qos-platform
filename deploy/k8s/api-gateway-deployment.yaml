@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: api-gateway
-        image: proap900/api-gateway:latest
+        image: proap900/ai-qos-api-gateway:latest
         ports:
         - containerPort: 8000
         env:
