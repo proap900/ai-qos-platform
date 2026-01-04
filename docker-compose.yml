@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  ml-inference:
+    build: ./services/ml-inference
+    container_name: ml-inference
+    ports:
+      - "8001:8001"
+
+  api-gateway:
+    build: ./services/api-gateway
+    container_name: api-gateway
+    ports:
+      - "8000:8000"
+    depends_on:
+      - ml-inference

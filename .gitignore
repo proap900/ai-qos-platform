@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.env
+
+# ML artifacts (keep model dir if needed)
+*.h5
+*.keras
+
+# OS
+.DS_Store
+
+# Jenkins
+.jenkins/
+
+# Logs
+*.log

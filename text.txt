@@ -1,0 +1,13 @@
+A realistic CI/CD workflow might look like this:
+
+Developer pushes code to Git.
+
+Jenkins runs build + tests.
+
+Jenkins builds a Docker image and pushes to registry.
+
+Jenkins calls Ansible to configure infrastructure (if needed).
+
+Jenkins deploys containers to Kubernetes.
+
+Nagios monitors the system.
