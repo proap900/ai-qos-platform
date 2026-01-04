@@ -46,6 +46,26 @@ pipeline {
                 '''
             }
         }
+
+        stage('Push Images to Docker Hub') {
+            steps {
+                withCredentials([usernamePassword(
+                    credentialsId: 'dockerhub-creds',
+                    usernameVariable: 'DOCKER_USER',
+                    passwordVariable: 'DOCKER_PASS'
+                )]) {
+                    sh '''
+                    echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+
+                    docker tag ml-inference-ci:latest $DOCKER_USER/ai-qos-ml-inference:latest
+                    docker tag api-gateway-ci:latest $DOCKER_USER/ai-qos-api-gateway:latest
+
+                    docker push $DOCKER_USER/ai-qos-ml-inference:latest
+                    docker push $DOCKER_USER/ai-qos-api-gateway:latest
+                    '''
+                }
+            }
+        }
     }
 
     post {
